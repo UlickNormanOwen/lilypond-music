@@ -4,7 +4,7 @@
 % TODO: figure something out about layout
 % #(set-default-paper-size "a5")
 
-% "K Tobe prichazim" (?)
+% (?) "K Tobe prichazim"
 % kopirovane listy 118
 
 % TODO: finish the chorus, check correctness
@@ -16,12 +16,12 @@
 \layout {
   \context {
     \Score
-    \override LyricText.font-size = #0.1  % smaller lyrics
+    \override LyricText.font-size = #-0.7  % smaller lyrics
   }
 }
 
 \header {
-  title = "K Tobě přicházím (?)"
+  title = "(?) K Tobě přicházím"
   tagline = ""  % get rid of default footer
 }
 
@@ -30,6 +30,7 @@ the_chords = \chords {
   e1 | h/dis | a2/fis e4/gis a | h2:sus4 h |
   a/fis e/gis | h1 | a2/fis e/gis | h1 |
   a2/fis e/gis | h1 | a2/fis e/gis | h1 |
+  e | h/dis | a/fis | a/h | e
 }
 
 upper_voice = \relative {
@@ -106,9 +107,12 @@ second_verse = \lyricmode {
   dě -- ko -- vat mi -- lo -- sti Tvé!
 }
 
-chorus = \lyricmode {
+chorus_first_part = \lyricmode {
   Z_ce -- lé -- ho srd -- ce Ti chvá -- lu vzdá -- vám,
   ví -- ce ne -- u -- mím, a ne -- spla -- tím svůj dluh.
+}
+
+chorus_second_part = \lyricmode {
   Po -- kor -- ně mi -- lost -- Tvou o -- če -- ká -- vám, 
   Ty jsi Lás -- ka sám a jmé -- no Tvé je Bůh.
 }
@@ -119,13 +123,19 @@ chorus = \lyricmode {
   \new Staff = "lower_staff" { 
     \new Voice = "lower_voice" \lower_voice
   }
-  \new Lyrics \with { alignAboveContext = "lower_staff" } {
+  \new Lyrics = "first_lyrics_line" \with { alignAboveContext = "lower_staff" } {
     \lyricsto "lower_voice" {
       \first_verse
-      \chorus
+      <<
+        \chorus_first_part
+        \new Lyrics \with { alignBelowContext = "first_lyrics_line" } {
+          \set associatedVoice = "lower_voice" 
+          \chorus_second_part
+        }
+      >>
     }
   }
-  \new Lyrics \with { alignAboveContext = "lower_staff" } {
+  \new Lyrics \with { alignBelowContext = "first_lyrics_line" } {
     \lyricsto "lower_voice" \second_verse
   }
 >>
