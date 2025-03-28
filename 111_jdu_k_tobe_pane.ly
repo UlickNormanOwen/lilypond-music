@@ -81,7 +81,7 @@ verse_one = \lyricmode {
   Můj dra -- hý tá -- to, já
   Tvou mi -- lost po -- zná -- vám a vím
   Tvá lá -- ska po -- sta -- čí
-  a -- by změ -- ni -- la nás.
+  a -- by změ -- ni -- la nás. _ _
 }
 
 verse_two = \lyricmode {
@@ -92,11 +92,11 @@ verse_two = \lyricmode {
   Chci ko -- nat vů -- li Tvou,
   tak žít na ka -- ždý den s_ví -- rou,
   že Ty mě pro -- mě -- níš,
-  to je na -- dě -- je má.
+  to je na -- dě -- je má. _ _
 }
 
 chorus = \lyricmode {
-  _ _ Můj pa -- ne, 
+  Můj pa -- ne, 
   drž mě pev -- ně lás -- kou svou.
   Můj pa -- ne, sí -- lu mi dá -- váš.
   A já če -- kám, že ja -- ko o -- rel vzlét -- nu výš,
@@ -110,6 +110,7 @@ chorus = \lyricmode {
   \addlyrics {
     \set stanza = "1. "
     \verse_one
+    \set stanza = "Ref. "
     \chorus
   }
   \addlyrics {
