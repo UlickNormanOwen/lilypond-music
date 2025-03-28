@@ -12,7 +12,6 @@
   tagline = ""  % get rid of default footer
 }
 
-% TODO: figure out whether the original has errors...
 % TODO: fix the G chords - what does '7/4' mean?
 
 \layout {
@@ -46,7 +45,7 @@ melody = \relative {
   g | \break
   a2 g |
   c, f4 e |
-  d c2~ \break
+  d c2.~ | \break
   4 r r2 \fine
 }
 
@@ -69,6 +68,7 @@ chorus = \lyricmode{
   \melody
   \addlyrics {
     \verse_one
+    \set stanza = "Ref. "
     \chorus
   }
   \addlyrics {
