@@ -32,7 +32,7 @@ the_chords = \chords {
     g2 f:/g | e:m/c a:m7 | 
     \alternative {
       \volta 1 { d1:m7 | g | }
-      \volta 2 { d2:m7 g | c | }
+      \volta 2 { d2:m7 g | c1 | }
     }
   }
 }
@@ -44,7 +44,7 @@ melody = \relative {
   r4 d,8 e f4. e8 | d1 | \break
   r4 e8 f g4. e8 | d4. e8 c2 |
   r4 e8 f g4. e8 | c1 | \break
-  r4 c'8 c b4 as | g4. e8 c2 |
+  r4 c'8 c b4. as8 | g4. e8 c2 |
   r4 d8 e f a4. | g1 | \break
   \repeat volta 2 {
     r4 c8 h c4 e,8 f~ | 1 |
@@ -57,7 +57,50 @@ melody = \relative {
   } \fine
 }
 
+verse_one = \lyricmode {
+  Kaž -- dý den mne mí -- je -- jí
+  o -- či mno -- hých ří -- ka -- jí
+  že jsou li -- dé zou -- fa -- lí,
+  vel -- mi strá -- da -- jí.
+  S_bo -- les -- tí a prázd -- no -- tou,
+  bě -- ží stá -- le dál,
+  je -- jich tou -- hu skrý -- va -- nou
+  vi -- dí Je -- žíš Král.
+}
+
+verse_two = \lyricmode {
+  Svě -- tlo má -- me dá -- le nést
+  ru -- kou Pá -- na dát se vést,
+  li -- dem pří -- klad lás -- ky dát
+  a_Bo -- ha stá -- le více_znát.
+  Kaž -- dá chví -- le sdí -- le -- ní
+  no -- vou sí -- lu dá,
+  poz -- ve -- dá i v_trá -- pe -- ní,
+  srd -- ce ot -- ví -- rá.
+}
+
+chorus = \lyricmode {
+  Chceš- li ví -- ru mít,
+  mu -- síš s_Pá -- nem žít,
+  Je -- ho jmé -- no váž -- ně brát,
+  \alternative {
+      \volta 1 { ži -- vot svůj mu dát. }
+      \volta 2 { ži -- vot svůj mu dát. }
+  }
+  ži -- vot svůj mu dát.
+}
+
 <<
   \the_chords
   \melody
+  \addlyrics {
+    \set stanza = "1. "
+    \verse_one
+    \set stanza = "Ref. "
+    \chorus
+  }
+  \addlyrics {
+    \set stanza = "2. "
+    \verse_two
+  }
 >>
