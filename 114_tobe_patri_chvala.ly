@@ -7,7 +7,6 @@
 
 % TODO: 
 % - zkontrolovat useky kde delky not nesedi
-% - schovat N.C. (no chord) symboly a dodelat akordy
 
 \paper {
   indent = 0.0  % remove default first line indentation
