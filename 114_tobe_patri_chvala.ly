@@ -26,7 +26,33 @@
 }
 
 the_chords = \chords {
-  r4 | a1
+  \set noChordSymbol = ""  % hide "N.C." symbols
+  \set majorSevenSymbol = \markup { maj7 }  % change maj7 notation
+  \repeat segno 2 {
+    \repeat volta 2 {
+      \partial 4 r4 | a1 | a:maj7 | 
+      g | 
+      \alternative {
+        \volta 1 { h2:m e4 | }
+        \volta 2 { h2:m e | }
+      }
+    }
+    \repeat volta 2 {
+      a1 | fis:m | d2 h:m | 
+      \alternative {
+        \volta 1 { e2 e:7 | }
+        \volta 2 { e2. }
+      }
+    }
+  }
+  r4 | d2 e | a fis:m | d e | cis:m fis:m |
+  \repeat volta 2 {
+    d1 | h2:m e |
+    \alternative {
+      \volta 1 { a2 fis:m | }
+      \volta 2 { a1 | }
+    }
+  }
 }
 
 melody = \relative {
@@ -52,7 +78,7 @@ melody = \relative {
   }
   h8 cis | \break
   d8. 16 8 cis8 h4 cis8 d | e e e d cis4. 8 | \break
-  fis4 8 8 gis8 8 fis gis | a gis fis e16 fis~ 4 8 gis | \break
+  fis4 8 8 gis8 8 fis gis | a[ gis fis e16 fis~] 4 8 gis | \break
   \repeat volta 2 {
     a16 8.~ 4~ 4 fis8 gis | a2~ 4 8 gis |
     \alternative {
