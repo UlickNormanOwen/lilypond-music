@@ -66,6 +66,7 @@ chorus = \lyricmode {
   \addlyrics {
     \set stanza = "1. "
     \verse_one
+    \set stanza = "Ref. "
     \chorus
   }
 >>
