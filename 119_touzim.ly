@@ -20,10 +20,37 @@
   }
 }
 
+the_chords = \chords {
+  \repeat volta 2 {
+    g1 | c:sus2 | a:m7 | d |
+    g1 | c:sus2 | a:m7 |
+    \alternative {
+      \volta 1 { d | }
+      \volta 2 { d | }
+    }
+  }
+  d2:sus4 d |
+  \repeat segno 2 {
+    \repeat volta 2 {
+      g1 | c | d | d2:sus4 d |
+      g1 | c | d | d2:sus4 d |
+    }
+    \repeat volta 2 {
+      g1 | c:sus2 | a:m7 | d |
+      g1 | c:sus2 | a:m7 |
+      \alternative {
+        \volta 1 { d | }
+        \volta 2 { d | }
+      }
+    }
+    d2:sus4 d |
+  }
+}
+
 melody = \relative {
   \key g \major
   \repeat volta 2 {
-    fis'4 g r8 g8 fis g | a4 g2 r4 | r g4 g4. 8 | 8 fis4. 4 4 | \break
+    fis'4 g r8 g8 fis[ g] | a4 g2 r4 | r g4 g4. 8 | 8 fis4. 4 4 | \break
     fis2 g4 fis8 g | a2 g4 r4 | r2 \tuplet 3/2 { g4 4 4 } | 
     \alternative {
       \volta 1 { g8 fis4. 4 r4 | \break }
@@ -39,14 +66,14 @@ melody = \relative {
     }
     \repeat volta 2 {
       fis8 g4. r4 fis8 g | a8 g4. r2 | \break
-      r4 g8 8 4. 8 | 4 fis4 2 | 2 g4 fis8 g | a2 g4 r4 | \break
-      r4 g8 8 4. 8 |
+      r4 g8\noBeam 8 4. 8 | 4 fis4 2 | 2 g4 fis8 g | a2 g4 r4 | \break
+      r4 g8\noBeam 8 4. 8 |
       \alternative {
         \volta 1 { g8 fis4. 4 r4 | }
         \volta 2 { g8 a4. 2 | }
       }
     }
-    r1
+    r1 \fine
   }
 }
 
@@ -80,7 +107,7 @@ verse_two = \lyricmode {
 }
 
 <<
-  %\the_chords
+  \the_chords
   \melody
   \addlyrics {
     \set stanza = "1. "
